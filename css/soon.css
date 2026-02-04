@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'PressStart2P';
+    src: url('../fonts/PressStart2P-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.soon-text {
+    font-family: 'PressStart2P', monospace;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .soon-text {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .soon-text {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+}
