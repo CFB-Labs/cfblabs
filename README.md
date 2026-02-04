@@ -1,3 +1,4 @@
 # CFB Labs
 
-#### Официальный сайт организации
+#### The official website of the organization
+
