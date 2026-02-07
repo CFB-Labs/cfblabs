@@ -3,7 +3,7 @@ const translations = {
         menu_projects: "Проекты",
         menu_markets: "Маркетплейсы",
         menu_about: "О нас",
-        menu_nft: "NFT коллекция",
+        menu_nft: "NFT-коллекция",
 
         about_title: "О НАС",
         about_text: "«CFB Labs — это гаражный стартап, который формирует будущее интернета.»",
@@ -48,7 +48,7 @@ const translations = {
         menu_projects: "Projects",
         menu_markets: "Marketplaces",
         menu_about: "About us",
-        menu_nft: "NFT Collection",
+        menu_nft: "NFT collection",
 
         about_title: "ABOUT US",
         about_text: "«CFB Labs is a garage-based startup that is shaping the future of the internet.»",
@@ -96,7 +96,7 @@ let currentLang = 'ru';
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('cfb_lang');
 
-    if (savedLang) {
+    if (savedLang && ['ru', 'en'].includes(savedLang)) {
         currentLang = savedLang;
     } else {
         currentLang = detectBrowserLanguage();
@@ -105,131 +105,104 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateLanguageUI();
     applyTranslations();
-
     setupLanguageSwitcher();
     setupKeyboardShortcuts();
     updateCopyrightYear();
 });
 
 function detectBrowserLanguage() {
-    const browserLang = navigator.language || navigator.userLanguage;
-
-    console.log('Browser language:', browserLang);
-
-    if (browserLang.toLowerCase().startsWith('ru')) {
-        console.log('Auto-selected: Russian');
-        return 'ru';
-    } else {
-        console.log('Auto-selected: English');
-        return 'en';
-    }
+    const browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
+    return browserLang.startsWith('ru') ? 'ru' : 'en';
 }
 
 function setupLanguageSwitcher() {
-    const langButtons = document.querySelectorAll('.lang-btn');
-
-    if (langButtons.length === 0) {
-        return;
-    }
-
-    langButtons.forEach(button => {
+    document.querySelectorAll('.lang-btn').forEach(button => {
         button.addEventListener('click', () => {
             const newLang = button.getAttribute('data-lang');
-
-            if (newLang !== currentLang) {
-                currentLang = newLang;
-                localStorage.setItem('cfb_lang', currentLang);
-                updateLanguageUI();
-                applyTranslations();
-                updateCopyrightYear();
+            if (newLang && newLang !== currentLang) {
+                switchLanguage(newLang);
             }
         });
     });
 }
 
+function switchLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('cfb_lang', currentLang);
+    updateLanguageUI();
+    applyTranslations();
+    updateCopyrightYear();
+}
+
 function updateLanguageUI() {
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
     });
-
-    const activeBtn = document.querySelector(`.lang-btn[data-lang="${currentLang}"]`);
-    if (activeBtn) {
-        activeBtn.classList.add('active');
-    }
-
     document.documentElement.setAttribute('lang', currentLang);
 }
 
 function applyTranslations() {
-    // Smooth transition
-    document.body.style.opacity = '0.8';
-    document.body.style.transition = 'opacity 0.3s ease';
+    document.body.style.opacity = '0.7';
+    document.body.style.transition = 'opacity 0.2s ease';
 
-    // Apply translations with validation
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        const translation = translations[currentLang][key];
+    const elements = document.querySelectorAll('[data-i18n]');
+    if (elements.length === 0) {
+        console.warn('No translatable elements found on page.');
+    }
 
-        if (translation) {
-            element.textContent = translation;
-        } else {
-            console.warn(`Translation not found for key: ${key} (${currentLang})`);
-            // Fallback to English
-            if (currentLang !== 'en' && translations.en[key]) {
-                element.textContent = translations.en[key];
-            }
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const dict = translations[currentLang];
+        let text = dict?.[key];
+
+        if (text == null) {
+            text = translations.en?.[key] || key || el.textContent;
+            console.warn(`Missing translation for key: "${key}" in language: ${currentLang}`);
         }
+
+        el.textContent = text;
     });
 
-    // Update meta tags
     updateMetaTags();
 
-    // Smooth fade in
     setTimeout(() => {
         document.body.style.opacity = '1';
-    }, 50);
+    }, 30);
 }
 
 function updateMetaTags() {
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-        if (currentLang === 'ru') {
-            metaDesc.setAttribute('content', 'CFB Labs — крипто-стартап из гаража. Мы создаём будущее интернета: Web3 проект.');
-        } else {
-            metaDesc.setAttribute('content', 'CFB Labs — garage crypto startup. We are creating the future of the internet: Web3 project.');
-        }
+        metaDesc.setAttribute(
+            'content',
+            currentLang === 'ru'
+                ? 'CFB Labs — крипто-стартап из гаража. Мы создаём будущее интернета: Web3 проект.'
+                : 'CFB Labs — garage crypto startup. We are creating the future of the internet: Web3 project.'
+        );
     }
-
     document.title = 'CFB Labs';
 }
 
 function updateCopyrightYear() {
-    const currentYear = new Date().getFullYear();
-    const copyrightElements = document.querySelectorAll('[data-i18n="copyright"]');
+    const now = new Date().getFullYear();
+    const copyrightEl = document.querySelector('[data-i18n="copyright"]');
+    if (!copyrightEl) return;
 
-    copyrightElements.forEach(element => {
-        const baseText = translations[currentLang].copyright;
-        const updatedText = baseText.replace('2026', currentYear.toString());
-        element.textContent = updatedText;
-    });
+    let baseText = translations[currentLang]?.copyright;
+    if (!baseText) baseText = translations.en.copyright || '© 2025–2026 CFB Labs. All Rights Reserved.';
+
+    const updatedText = baseText.replace(/2026/g, now.toString());
+    copyrightEl.textContent = updatedText;
 }
 
 function setupKeyboardShortcuts() {
     document.addEventListener('keydown', (e) => {
-        if (e.ctrlKey && e.key === 'r') {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
+            e.preventDefault();
             switchLanguage('ru');
-        } else if (e.ctrlKey && e.key === 'e') {
+        } else if ((e.ctrlKey || e.metaKey) && e.key === 'e') {
+            e.preventDefault();
             switchLanguage('en');
         }
     });
-}
-
-function switchLanguage(lang) {
-    if (lang !== currentLang) {
-        currentLang = lang;
-        localStorage.setItem('cfb_lang', currentLang);
-        updateLanguageUI();
-        applyTranslations();
-        updateCopyrightYear();
-    }
 }
