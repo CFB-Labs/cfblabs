@@ -7,7 +7,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -21,7 +22,7 @@ body {
 }
 
 .page-wrapper {
-    height: 100vh; 
+    height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: black;
@@ -140,7 +141,7 @@ body {
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 2px);
     left: 0;
     right: 0;
     background-color: black;
@@ -183,12 +184,12 @@ body {
 }
 
 .main-content {
-    flex: 1; 
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px; 
-    overflow: hidden; 
+    padding: 10px;
+    overflow: hidden;
 }
 
 .content {
@@ -202,14 +203,14 @@ body {
 .content img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; 
+    object-fit: contain;
     width: auto;
     height: auto;
 }
 
 .footer {
     flex-shrink: 0;
-    padding: 10px 0 0 0;
+    padding: 0;
 }
 
 .footer .container {
@@ -305,23 +306,6 @@ body {
         width: 16px;
     }
 
-    /* Мобильное меню */
-    .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: black;
-        padding: 15px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        z-index: 1000;
-        display: none;
-    }
-
-    .dropdown-menu.active {
-        display: block;
-    }
-
     .dropdown-menu ul {
         gap: 20px;
         flex-direction: column;
@@ -336,7 +320,7 @@ body {
     }
 
     .main-content {
-        padding: 5px; 
+        padding: 5px;
     }
 
     .footer_1 {
