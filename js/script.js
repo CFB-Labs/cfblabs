@@ -1,4 +1,3 @@
-// === Получение цены TON в реальном времени ===
 async function fetchTonPrice() {
     const priceElement = document.getElementById('tonPrice');
     if (!priceElement) return;
@@ -10,7 +9,6 @@ async function fetchTonPrice() {
         const price = data['the-open-network']?.usd;
 
         if (price !== undefined) {
-            // Формат: "5.842 $"
             priceElement.textContent = price.toFixed(3) + ' $';
         } else {
             priceElement.textContent = '— $';
@@ -21,8 +19,7 @@ async function fetchTonPrice() {
     }
 }
 
-// Запуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     fetchTonPrice();
-    setInterval(fetchTonPrice, 30000); // обновление каждые 30 секунд
+    setInterval(fetchTonPrice, 30000);
 });
