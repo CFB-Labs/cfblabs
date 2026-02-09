@@ -8,14 +8,23 @@
         content="CFB Labs — крипто-стартап из гаража. Мы создаём будущее интернета. Web3 проект." />
     <title>CFB Labs</title>
 
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <!-- Favicon (все файлы в /images/) -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="images/site.webmanifest" />
 
+    <!-- Стили -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Скрипты -->
     <script src="js/script.js" defer></script>
     <script src="js/menu.js" defer></script>
     <script src="js/language.js" defer></script>
 
+    <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -27,11 +36,13 @@
       "sameAs": [
         "https://vk.com/cfb_labs",
         "https://t.me/cfblabs",
-        "https://www.youtube.com/@cfblabs",
+        "https://www.youtube.com/@cfb_labs",
         "https://github.com/CFB-Labs"
       ]
     }
     </script>
+
+    <!-- Google Search Console -->
     <meta name="google-site-verification" content="ZIc0wUM6obx958Z8Mg41WnutjRhDJ1fb7j_DcVmdzLI" />
 </head>
 
@@ -44,6 +55,10 @@
                 </div>
                 <div class="title">CFB<br />Labs</div>
                 <div class="header-right">
+                    <div class="ton-price">
+                        <img src="images/ton.png" alt="TON" class="ton-icon" />
+                        <span id="tonPrice">Loading...</span>
+                    </div>
                     <div class="language-switcher" id="languageSwitcher">
                         <span class="lang-btn lang-en" data-lang="en">En</span>
                         <span class="lang-separator">/</span>
@@ -82,7 +97,7 @@
                     <a href="https://vk.com/cfb_labs" target="_blank" rel="noopener">
                         <div class="icon"><img src="images/sn/vk-icon.png" alt="VK" /></div>
                     </a>
-                    <a href="https://t.me/cfb_labs" target="_blank" rel="noopener">
+                    <a href="https://t.me/cfblabs" target="_blank" rel="noopener">
                         <div class="icon"><img src="images/sn/telegram-icon.png" alt="Telegram" /></div>
                     </a>
                     <a href="https://www.youtube.com/@cfb_labs" target="_blank" rel="noopener">
