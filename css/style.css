@@ -156,7 +156,7 @@ body {
     right: 0;
     background-color: black;
     padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid white;
     z-index: 1000;
     display: none;
 }
