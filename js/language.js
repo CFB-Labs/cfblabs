@@ -14,6 +14,7 @@ const translations = {
         filter_notgames: "Not Games",
         filter_nodes: "Ноды",
 
+        project_tap_of: "TAP OF",
         project_lime: "LIME",
         project_open_academy: "Open Academy",
         project_zifretta: "ZIFRETTA",
@@ -59,6 +60,7 @@ const translations = {
         filter_notgames: "Not Games",
         filter_nodes: "Nodes",
 
+        project_tap_of: "TAP OF",
         project_lime: "LIME",
         project_open_academy: "Open Academy",
         project_zifretta: "ZIFRETTA",
