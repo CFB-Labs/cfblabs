@@ -142,7 +142,7 @@ body {
 }
 
 .line {
-    height: 2px;
+    height: 1.5px;
     background-color: rgb(255, 255, 255);
     width: 100%;
     margin: 0;
@@ -156,7 +156,7 @@ body {
     right: 0;
     background-color: black;
     padding: 15px 0;
-    border-bottom: 2px solid white;
+    border-bottom: 1.5px solid white;
     z-index: 1000;
     display: none;
 }
