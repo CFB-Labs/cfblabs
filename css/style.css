@@ -52,26 +52,19 @@ body {
 .logotipe-glav {
     display: flex;
     align-items: center;
-    gap: 8px;
-    white-space: nowrap;
 }
 
 .logo-link {
     display: flex;
     align-items: center;
-    gap: 8px;
     text-decoration: none;
     color: inherit;
     transition: opacity 0.2s;
+    gap: 8px;
 }
 
 .logo-link:hover {
     opacity: 0.9;
-}
-
-.logotipe {
-    display: flex;
-    align-items: center;
 }
 
 .logo {
@@ -81,9 +74,16 @@ body {
 }
 
 .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
     font-size: 15px;
-    line-height: 1.2;
     color: white;
+}
+
+.title span {
+    white-space: nowrap;
 }
 
 .header-right {
