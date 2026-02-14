@@ -49,17 +49,24 @@ body {
     gap: 10px;
 }
 
-.header-left,
-.header-center,
-.header-right {
+.logotipe-glav {
     display: flex;
     align-items: center;
-    min-width: 0;
+    gap: 8px;
+    white-space: nowrap;
 }
 
-.header-center {
-    flex: 1;
-    text-align: center;
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+}
+
+.logo-link:hover {
+    opacity: 0.9;
 }
 
 .logotipe {
@@ -70,13 +77,13 @@ body {
 .logo {
     width: 50px;
     height: 50px;
+    object-fit: contain;
 }
 
 .title {
     font-size: 15px;
-    color: white;
-    white-space: nowrap;
     line-height: 1.2;
+    color: white;
 }
 
 .header-right {
