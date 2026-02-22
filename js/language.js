@@ -2,8 +2,9 @@ const translations = {
     ru: {
         menu_projects: "Проекты",
         menu_markets: "Маркетплейсы",
-        menu_about: "О нас",
+        menu_telegram_updates: "Обновления Telegram",
         menu_nft: "NFT-коллекция",
+        menu_about: "О нас",
 
         about_title: "О НАС",
         about_text: "«CFB Labs — это гаражный стартап, который формирует будущее интернета.»",
@@ -32,7 +33,6 @@ const translations = {
         project_grass: "Grass",
 
         markets_title: "МАРКЕТПЛЕЙСЫ",
-
         market_getgems: "GETGEMS",
         market_fragment: "FRAGMENT",
         market_portals: "PORTALS",
@@ -48,8 +48,9 @@ const translations = {
     en: {
         menu_projects: "Projects",
         menu_markets: "Marketplaces",
-        menu_about: "About us",
+        menu_telegram_updates: "Telegram Updates",
         menu_nft: "NFT collection",
+        menu_about: "About us",
 
         about_title: "ABOUT US",
         about_text: "«CFB Labs is a garage-based startup that is shaping the future of the internet.»",
@@ -78,7 +79,6 @@ const translations = {
         project_grass: "Grass",
 
         markets_title: "MARKETPLACES",
-
         market_getgems: "GETGEMS",
         market_fragment: "FRAGMENT",
         market_portals: "PORTALS",
