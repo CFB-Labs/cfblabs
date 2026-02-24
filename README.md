@@ -1,7 +1,7 @@
 # CFB Labs
 
 #### The official website of the organization
-
+#### Официальный сайт организации
 ---
 
 > © 2025–2026 CFB Labs. All Rights Reserved.  
