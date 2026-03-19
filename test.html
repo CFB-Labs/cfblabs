@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Telegram Login</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: monospace;
+            padding: 20px;
+        }
+
+        #container {
+            margin-top: 20px;
+            min-height: 50px;
+            border: 2px dashed #444;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>🔹 Тест кнопки</h3>
+    <p>Домен: <span id="domain"></span></p>
+    <p>Client ID: 8336482196</p>
+
+    <div id="container">Ожидание...</div>
+
+    <script>
+        document.getElementById('domain').textContent = window.location.hostname;
+    </script>
+
+    <!-- Скрипт виджета -->
+    <script async src="https://oauth.telegram.org/js/telegram-login.js"></script>
+
+    <!-- Настройки виджета -->
+    <script type="text/javascript">
+        // Ждём чуть-чуть и создаём виджет вручную
+        setTimeout(() => {
+            const container = document.getElementById('container');
+            container.innerHTML = '';
+
+            const script = document.createElement('script');
+            script.src = "https://oauth.telegram.org/js/telegram-login.js";
+            script.setAttribute('data-client-id', '8336482196');
+            script.setAttribute('data-onauth', 'onAuth');
+            script.setAttribute('data-lang', 'ru');
+            script.setAttribute('data-size', 'large');
+            script.setAttribute('data-radius', '10');
+
+            container.appendChild(script);
+            console.log('🔄 Widget init started');
+        }, 500);
+
+        function onAuth(user) {
+            console.log('✅ Auth:', user);
+            document.getElementById('container').innerHTML = '👋 Привет, ' + user.first_name;
+        }
+    </script>
+</body>
+
+</html>
