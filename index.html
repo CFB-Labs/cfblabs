@@ -20,9 +20,12 @@
 
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+
     <script src="js/script.js" defer></script>
     <script src="js/menu.js" defer></script>
     <script src="js/language.js" defer></script>
+
+    <script async src="https://oauth.telegram.org/js/telegram-login.js"></script>
 
     <script type="application/ld+json">
     {
@@ -50,14 +53,9 @@
         })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=106820933', 'ym');
 
         ym(106820933, 'init', {
-            ssr: true,
-            webvisor: true,
-            clickmap: true,
-            ecommerce: "dataLayer",
-            referrer: document.referrer,
-            url: location.href,
-            accurateTrackBounce: true,
-            trackLinks: true
+            ssr: true, webvisor: true, clickmap: true,
+            ecommerce: "dataLayer", referrer: document.referrer,
+            accurateTrackBounce: true, trackLinks: true
         });
     </script>
     <noscript>
@@ -69,51 +67,60 @@
     <div class="page-wrapper">
         <header class="header">
             <div class="container">
-                <div class="logotipe-glav">
-                    <a href="html/about_us.html" class="logo-link" aria-label="Перейти на страницу «О нас»">
-                        <img src="images/icons/logo.png" alt="Логотип CFB Labs" class="logo" />
-                        <div class="title">
-                            <div>CFB</div>
-                            <div>Labs</div>
-                        </div>
-                    </a>
+                <div class="header-left">
+                    <div class="logotipe-glav">
+                        <a href="html/about_us.html" class="logo-link" aria-label="О нас">
+                            <img src="images/icons/logo.png" alt="CFB Labs" class="logo" />
+                            <div class="title">
+                                <div>CFB</div>
+                                <div>Labs</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="header-right">
+
+                <div class="header-center">
                     <div class="ton-price">
-                        <img src="images/ton.png" alt="Цена TON" class="ton-icon" />
+                        <img src="images/ton.png" alt="TON" class="ton-icon" />
                         <span id="tonPrice">Загрузка...</span>
                     </div>
+                    <span class="center-separator">|</span>
                     <div class="language-switcher" id="languageSwitcher">
-                        <button class="lang-btn lang-en" data-lang="en"
-                            aria-label="Переключить на английский">En</button>
+                        <button class="lang-btn lang-en" data-lang="en">En</button>
                         <span class="lang-separator">/</span>
-                        <button class="lang-btn lang-ru active" data-lang="ru"
-                            aria-label="Переключить на русский">Ru</button>
+                        <button class="lang-btn lang-ru active" data-lang="ru">Ru</button>
                     </div>
-                    <div class="menu-burger" id="burger" role="button" aria-expanded="false" aria-label="Открыть меню">
+                </div>
+
+                <div class="header-right">
+                    <div id="telegram-login-container"></div>
+                    <div class="menu-burger" id="burger" role="button" aria-label="Меню">
                         <div class="menu-burger-line"></div>
                         <div class="menu-burger-line"></div>
                         <div class="menu-burger-line"></div>
                     </div>
                 </div>
             </div>
+
             <nav class="dropdown-menu" id="dropdownMenu" aria-hidden="true">
                 <ul>
-                    <li><a href="html/projects.html" rel="noopener" data-i18n="menu_projects">Проекты</a></li>
-                    <li><a href="html/markets.html" rel="noopener" data-i18n="menu_markets">Маркетплейсы</a></li>
-                    <li><a href="https://t.me/telegram" rel="noopener" data-i18n="menu_telegram_updates">Обновления
-                            Telegram</a></li>
-                    <li><a href="https://getgems.io/cfblabs" rel="noopener" data-i18n="menu_nft">NFT коллекция</a></li>
-                    <li><a href="html/about_us.html" rel="noopener" data-i18n="menu_about">О нас</a></li>
+                    <li><a href="html/projects.html" data-i18n="menu_projects">Проекты</a></li>
+                    <li><a href="html/markets.html" data-i18n="menu_markets">Маркетплейсы</a></li>
+                    <li><a href="https://t.me/telegram" data-i18n="menu_telegram_updates">Обновления Telegram</a></li>
+                    <li><a href="https://getgems.io/cfblabs" data-i18n="menu_nft">NFT-коллекция</a></li>
+                    <li><a href="html/about_us.html" data-i18n="menu_about">О нас</a></li>
                 </ul>
             </nav>
         </header>
+
         <div class="line"></div>
+
         <main class="main-content">
             <div class="content">
-                <img src="images/banner.png" alt="CFB Labs: создаём будущее интернета на Web3" />
+                <img src="images/banner.png" alt="CFB Labs Banner" />
             </div>
         </main>
+
         <footer class="footer">
             <div class="line"></div>
             <div class="container">

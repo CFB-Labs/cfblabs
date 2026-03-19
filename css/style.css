@@ -5,13 +5,13 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html,
 body {
     height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 body {
@@ -19,6 +19,7 @@ body {
     color: white;
     font-family: 'PS2P-Regular', monospace;
     line-height: 1.4;
+    overflow-x: hidden;
 }
 
 .page-wrapper {
@@ -43,10 +44,15 @@ body {
 }
 
 .header .container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
+}
+
+.header-left {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .logotipe-glav {
@@ -83,34 +89,67 @@ body {
     min-width: 60px;
 }
 
-.header-right {
+.header-center {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.center-separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 10px;
+    user-select: none;
+}
+
+.ton-price {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: white;
+    white-space: nowrap;
+    min-width: 55px;
+    text-align: center;
+    transition: color 0.2s;
+}
+
+.ton-price.error {
+    color: #ff6b6b;
+}
+
+.ton-price.loading {
+    opacity: 0.7;
+}
+
+.ton-icon {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    object-fit: contain;
 }
 
 .language-switcher {
     display: flex;
-    gap: 5px;
+    gap: 3px;
     align-items: center;
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s;
-}
-
-.language-switcher:hover {
-    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .lang-btn {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 300;
     cursor: pointer;
     transition: all 0.3s;
-    padding: 3px 8px;
-    border-radius: 10px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    color: white;
 }
 
 .lang-btn:hover {
@@ -123,8 +162,50 @@ body {
 }
 
 .lang-separator {
-    font-size: 12px;
+    font-size: 10px;
     color: rgba(255, 255, 255, 0.5);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+#telegram-login-container {
+    display: flex !important;
+    align-items: center;
+    min-width: 120px;
+}
+
+#telegram-login-container .tg-loading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 30px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+#telegram-login-container telegram-login-widget + .tg-loading,
+#telegram-login-container .tg-auth-button + .tg-loading {
+    display: none;
+}
+
+.user-greeting {
+    font-size: 10px;
+    color: #007AFF;
+    padding: 6px 10px;
+    background: rgba(0, 122, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 122, 255, 0.3);
+    white-space: nowrap;
 }
 
 .menu-burger {
@@ -136,6 +217,7 @@ body {
     align-items: center;
     gap: 5px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .menu-burger-line {
@@ -143,6 +225,7 @@ body {
     height: 2px;
     background-color: white;
     border-radius: 45px;
+    transition: all 0.3s;
 }
 
 .line {
@@ -177,10 +260,6 @@ body {
     justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
-}
-
-.dropdown-menu li {
-    border: none;
 }
 
 .dropdown-menu a {
@@ -275,64 +354,66 @@ body {
     text-align: center;
 }
 
-.ton-price {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: white;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 5px 10px;
-    border-radius: 15px;
-    white-space: nowrap;
-}
+@media screen and (max-width: 768px) {
+    .header .container {
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+    }
 
-.ton-icon {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
-    object-fit: contain;
+    .header-center {
+        grid-column: 1 / -1;
+        order: 3;
+        margin-top: 6px;
+        justify-content: center;
+        width: 100%;
+        padding: 3px 8px;
+        font-size: 9px;
+    }
+    
+    .header-right {
+        gap: 8px;
+    }
+
+    #telegram-login-container {
+        transform: scale(0.9);
+        transform-origin: right center;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .header .container {
-        padding: 0 5px;
+        grid-template-columns: auto auto;
+        gap: 5px;
+    }
+
+    .header-center {
+        grid-column: 1 / -1;
+        order: 3;
+        margin-top: 4px;
+        padding: 3px 6px;
         gap: 6px;
+    }
+    
+    .center-separator {
+        display: none;
+    }
+
+    .header-right {
+        justify-content: flex-end;
     }
 
     .logo {
         width: 36px;
         height: 36px;
     }
-
+    
     .title {
         font-size: 9px;
-        line-height: 1.1;
     }
 
-    .ton-price {
-        font-size: 9px;
-        padding: 2px 6px;
-    }
-
-    .ton-icon {
-        width: 11px;
-        height: 11px;
-    }
-
-    .language-switcher {
-        gap: 2px;
-        padding: 2px 5px;
-        font-size: 9px;
-    }
-
-    .lang-btn {
-        font-size: 8px;
-        padding: 1px 3px;
-    }
-
-    .lang-separator {
-        font-size: 8px;
+    #telegram-login-container {
+        transform: scale(0.75);
+        margin-right: -10px;
     }
 
     .menu-burger {
@@ -342,10 +423,6 @@ body {
 
     .menu-burger-line {
         width: 14px;
-    }
-
-    .header-right {
-        gap: 4px;
     }
 
     .dropdown-menu ul {
@@ -372,5 +449,20 @@ body {
     .icon {
         width: 22px;
         height: 22px;
+    }
+    
+    .ton-price {
+        font-size: 9px;
+        min-width: 50px;
+    }
+    
+    .ton-icon {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .lang-btn {
+        font-size: 9px;
+        padding: 2px 4px;
     }
 }
