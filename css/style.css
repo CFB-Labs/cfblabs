@@ -118,12 +118,17 @@ body {
     transition: color 0.2s;
 }
 
-.ton-price.error {
-    color: #ff6b6b;
+.ton-price.loading {
+    opacity: 1;
 }
 
-.ton-price.loading {
-    opacity: 0.7;
+.ton-price.error {
+    color: white;
+}
+
+#tonPrice {
+    transition: opacity 0.2s ease;
+    will-change: opacity;
 }
 
 .ton-icon {
@@ -323,38 +328,118 @@ body {
     .header .container {
         display: grid;
         grid-template-columns: auto 1fr auto;
-        grid-template-rows: auto auto;
+        grid-template-rows: auto;
         gap: 8px;
         align-items: center;
-    }
-
-    .header-center {
-        grid-column: 1 / -1;
-        grid-row: 1;
-        justify-content: center;
-        width: 100%;
-        padding: 6px 10px;
-        margin: 4px 0 0 0;
+        padding: 0 5px;
     }
 
     .header-left {
         grid-column: 1;
-        grid-row: 2;
         justify-content: flex-start;
+    }
+
+    .header-center {
+        grid-column: 2;
+        justify-content: center;
+        width: 100%;
+        padding: 4px 6px;
+        margin: 0;
+        gap: 6px;
     }
 
     .header-right {
         grid-column: 3;
-        grid-row: 2;
         justify-content: flex-end;
+    }
+
+    .logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .title {
+        font-size: 10px;
+        min-width: 40px;
+        line-height: 1;
+    }
+
+    .ton-price {
+        font-size: 8px;
+        min-width: 40px;
+    }
+
+    .ton-icon {
+        width: 10px;
+        height: 10px;
+    }
+
+    .center-separator {
+        font-size: 8px;
+        opacity: 0.5;
+    }
+
+    .lang-btn {
+        font-size: 8px;
+        padding: 2px 4px;
+    }
+
+    .lang-separator {
+        font-size: 8px;
+    }
+
+    .menu-burger {
+        width: 36px;
+        height: 36px;
+    }
+
+    .menu-burger-line {
+        width: 16px;
+        height: 2px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .header .container {
+        gap: 4px;
+        padding: 0 2px;
+    }
+
+    .logo {
+        width: 28px;
+        height: 28px;
+    }
+
+    .title {
+        font-size: 9px;
+        min-width: 35px;
+    }
+
+    .ton-price {
+        font-size: 7px;
+        min-width: 35px;
+    }
+
+    .lang-btn {
+        font-size: 7px;
+        padding: 1px 3px;
+    }
+
+    .menu-burger {
+        width: 32px;
+        height: 32px;
+    }
+
+    .menu-burger-line {
+        width: 14px;
+    }
+
+    .center-separator {
+        display: none;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .center-separator {
-        display: none;
-    }
-
     .dropdown-menu ul {
         gap: 20px;
         flex-direction: column;
@@ -379,44 +464,5 @@ body {
     .icon {
         width: 22px;
         height: 22px;
-    }
-
-    .ton-price {
-        font-size: 9px;
-        min-width: 50px;
-    }
-
-    .ton-icon {
-        width: 10px;
-        height: 10px;
-    }
-
-    .lang-btn {
-        font-size: 9px;
-        padding: 2px 4px;
-    }
-
-    .header .container {
-        grid-template-columns: auto 1fr auto;
-        gap: 5px;
-    }
-
-    .logo {
-        width: 36px;
-        height: 36px;
-    }
-
-    .title {
-        font-size: 9px;
-        min-width: 45px;
-    }
-
-    .menu-burger {
-        width: 34px;
-        height: 34px;
-    }
-
-    .menu-burger-line {
-        width: 14px;
     }
 }
