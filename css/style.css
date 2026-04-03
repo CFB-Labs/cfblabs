@@ -132,8 +132,7 @@ body {
     color: white;
 }
 
-#tonPrice,
-#notPrice {
+#tonPrice {
     transition: opacity 0.2s ease;
     will-change: opacity;
     overflow: hidden;
@@ -454,10 +453,8 @@ body {
         display: none;
     }
 
-    .language-switcher {
-        display: none;
-    }
-
+    /* Переключатель языка теперь виден на мобильных */
+    
     .crypto-price-item:last-child {
         display: none;
     }
