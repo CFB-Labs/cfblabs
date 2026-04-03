@@ -33,6 +33,8 @@ body {
     padding: 10px 0;
     flex-shrink: 0;
     position: relative;
+    z-index: 1001;
+    background-color: black;
 }
 
 .header .container {
@@ -95,12 +97,6 @@ body {
     min-width: 0;
 }
 
-.center-separator {
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 12px;
-    user-select: none;
-}
-
 .crypto-price-item {
     display: flex;
     align-items: center;
@@ -111,14 +107,6 @@ body {
     text-align: center;
     transition: color 0.2s;
     min-width: 0;
-}
-
-.crypto-price-item.loading {
-    opacity: 1;
-}
-
-.crypto-price-item.error {
-    color: white;
 }
 
 #tonPrice {
@@ -190,6 +178,7 @@ body {
     gap: 5px;
     cursor: pointer;
     flex-shrink: 0;
+    z-index: 1002;
 }
 
 .menu-burger-line {
@@ -210,18 +199,29 @@ body {
 
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 2px);
+    top: 100%;
     left: 0;
     right: 0;
     background-color: black;
-    padding: 15px 0;
+    padding: 20px 0;
     border-bottom: 1.5px solid white;
     z-index: 1000;
     display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .dropdown-menu.active {
     display: block;
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .dropdown-menu ul {
@@ -230,7 +230,7 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
@@ -238,14 +238,17 @@ body {
     color: white;
     text-decoration: none;
     font-size: 14px;
-    padding: 8px 16px;
-    transition: background-color 0.3s;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
     border-radius: 8px;
     display: block;
+    text-align: center;
+    min-width: 120px;
 }
 
 .dropdown-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
 }
 
 .main-content {
@@ -378,11 +381,6 @@ body {
         height: 14px;
     }
 
-    .center-separator {
-        font-size: 9px;
-        opacity: 0.5;
-    }
-
     .lang-btn {
         font-size: 9px;
         padding: 2px 6px;
@@ -411,5 +409,65 @@ body {
         height: auto;
         max-height: 100%;
         object-fit: contain;
+    }
+
+    .dropdown-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        z-index: 999;
+        padding: 80px 0 0 0;
+        display: none;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        overflow-y: auto;
+    }
+
+    .dropdown-menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        animation: mobileMenuFadeIn 0.3s forwards;
+    }
+
+    @keyframes mobileMenuFadeIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .dropdown-menu ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 25px;
+        padding: 0;
+    }
+
+    .dropdown-menu li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .dropdown-menu a {
+        font-size: 18px;
+        padding: 15px 20px;
+        width: auto;
+        min-width: 200px;
+        text-align: center;
+        border: 1px solid transparent;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
     }
 }
