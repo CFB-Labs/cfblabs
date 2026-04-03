@@ -100,10 +100,10 @@ body {
     background-color: rgba(255, 255, 255, 0.05);
     padding: 6px 12px;
     border-radius: 50px;
-    /* ИЗМЕНЕНО: полностью круглые углы */
     border: 1px solid white;
     width: fit-content;
     margin: 0 auto;
+    min-width: 0;
 }
 
 .center-separator {
@@ -121,6 +121,7 @@ body {
     white-space: nowrap;
     text-align: center;
     transition: color 0.2s;
+    min-width: 0;
 }
 
 .crypto-price-item.loading {
@@ -135,6 +136,8 @@ body {
 #notPrice {
     transition: opacity 0.2s ease;
     will-change: opacity;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .crypto-icon {
@@ -151,6 +154,7 @@ body {
     gap: 3px;
     align-items: center;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .lang-btn {
@@ -163,6 +167,7 @@ body {
     background: transparent;
     border: none;
     color: white;
+    flex-shrink: 0;
 }
 
 .lang-btn:hover {
@@ -177,6 +182,7 @@ body {
 .lang-separator {
     font-size: 11px;
     color: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
 }
 
 .header-right {
@@ -333,10 +339,11 @@ body {
     text-align: center;
 }
 
+
 @media screen and (max-width: 768px) {
     .header .container {
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: auto minmax(0, 1fr) auto;
         grid-template-rows: auto;
         gap: 8px;
         align-items: center;
@@ -351,9 +358,11 @@ body {
     .header-center {
         grid-column: 2;
         justify-content: center;
-        padding: 5px 10px;
+        padding: 4px 8px;
         margin: 0 auto;
-        gap: 8px;
+        gap: 6px;
+        min-width: 0;
+        max-width: 50vw;
     }
 
     .header-right {
@@ -373,17 +382,17 @@ body {
     }
 
     .crypto-price-item {
-        font-size: 10px;
-        gap: 4px;
+        font-size: 9px;
+        gap: 3px;
     }
 
     .crypto-icon {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
     }
 
     .center-separator {
-        font-size: 10px;
+        font-size: 9px;
         opacity: 0.5;
     }
 
@@ -419,6 +428,40 @@ body {
 }
 
 @media screen and (max-width: 480px) {
+    .header .container {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 4px;
+        padding: 0 4px;
+    }
+
+    .header-center {
+        padding: 3px 6px;
+        gap: 4px;
+        max-width: 45vw;
+    }
+
+    .crypto-price-item {
+        font-size: 8px;
+        gap: 2px;
+    }
+
+    .crypto-icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .center-separator {
+        display: none;
+    }
+
+    .language-switcher {
+        display: none;
+    }
+
+    .crypto-price-item:last-child {
+        display: none;
+    }
+
     .dropdown-menu ul {
         gap: 20px;
         flex-direction: column;
@@ -459,6 +502,11 @@ body {
         padding: 0 2px;
     }
 
+    .header-center {
+        max-width: 40vw;
+        padding: 2px 4px;
+    }
+
     .logo {
         width: 28px;
         height: 28px;
@@ -470,12 +518,18 @@ body {
     }
 
     .crypto-price-item {
-        font-size: 9px;
+        font-size: 7px;
+        gap: 2px;
     }
 
     .crypto-icon {
-        width: 14px;
-        height: 14px;
+        width: 10px;
+        height: 10px;
+        border-width: 0.5px;
+    }
+
+    .crypto-price-item img {
+        display: none;
     }
 
     .lang-btn {
