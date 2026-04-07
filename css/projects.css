@@ -33,6 +33,9 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .back-arrow {
@@ -64,6 +67,10 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: var(--padding-small);
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .page-title {
@@ -104,6 +111,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap-medium);
     padding: 0;
+    flex: 1;
 }
 
 .vivod a {
@@ -246,6 +254,7 @@ body {
 @media (max-width: 768px) {
     .vivod {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--gap-medium);
     }
 
     .black-folder {
@@ -265,6 +274,10 @@ body {
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: var(--padding-small);
+    }
+
     .page-title {
         font-size: 24px;
         margin: 32px 0 20px;
@@ -292,11 +305,22 @@ body {
         height: 60px;
     }
 
+    .filter-item {
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+
     .back-arrow {
         top: 12px;
         left: 12px;
         width: 28px;
         height: 28px;
         font-size: 20px;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
     }
 }

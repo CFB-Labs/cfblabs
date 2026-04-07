@@ -208,3 +208,9 @@ main {
         white-space: nowrap;
     }
 }
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
+}
