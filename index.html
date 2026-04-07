@@ -11,19 +11,79 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="CFB Labs">
     <meta property="og:description" content="Крипто-стартап из гаража. Создаём будущее интернета на Web3.">
-    <meta property="og:image" content="https://cfblabs.online/images/banner.png">
+    <meta property="og:image" content="https://cfblabs.online/img/banner.png">
     <meta property="og:url" content="https://cfblabs.online">
     <meta property="og:site_name" content="CFB Labs">
-    <link rel="icon" type="image/png" href="images/icons/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg">
-    <link rel="shortcut icon" href="images/icons/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
-    <link rel="manifest" href="images/icons/site.webmanifest">
+    <link rel="icon" type="image/png" href="img/icons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="img/icons/favicon.svg">
+    <link rel="shortcut icon" href="img/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+    <link rel="manifest" href="img/icons/site.webmanifest">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/menu.js" defer></script>
     <script src="js/language.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://cfblabs.online/#organization",
+          "name": "CFB Labs",
+          "url": "https://cfblabs.online",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cfblabs.online/img/icons/logo.png",
+            "width": 50,
+            "height": 50
+          },
+          "description": "Крипто-стартап из гаража. Создаём будущее интернета на Web3.",
+          "foundingDate": "2025",
+          "sameAs": [
+            "https://t.me/cfblabs",
+            "https://vk.com/cfblabs",
+            "https://github.com/CFB-Labs",
+            "https://www.youtube.com/@cfblabsofficial"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "availableLanguage": ["Russian", "English"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cfblabs.online/#website",
+          "url": "https://cfblabs.online",
+          "name": "CFB Labs",
+          "description": "Крипто-стартап из гаража. Создаём будущее интернета на Web3.",
+          "inLanguage": ["ru-RU", "en-US"],
+          "publisher": {
+            "@id": "https://cfblabs.online/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://cfblabs.online/#webpage",
+          "url": "https://cfblabs.online",
+          "name": "CFB Labs — Крипто-стартап из гаража",
+          "isPartOf": {
+            "@id": "https://cfblabs.online/#website"
+          },
+          "about": {
+            "@id": "https://cfblabs.online/#organization"
+          },
+          "inLanguage": "ru-RU",
+          "potentialAction": {
+            "@type": "ReadAction",
+            "target": ["https://cfblabs.online"]
+          }
+        }
+      ]
+    }
+    </script>
     <script type="text/javascript">
         (function (m, e, t, r, i, k, a) {
             m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
@@ -51,7 +111,7 @@
                 <div class="header-left">
                     <div class="logotipe-glav">
                         <a href="/" class="logo-link" aria-label="О нас">
-                            <img src="images/icons/logo.png" alt="CFB Labs" class="logo" width="50" height="50">
+                            <img src="img/icons/logo.png" alt="CFB Labs" class="logo" width="50" height="50">
                             <div class="title">
                                 <div>CFB</div>
                                 <div>Labs</div>
@@ -61,7 +121,7 @@
                 </div>
                 <div class="header-center">
                     <div class="crypto-price-item">
-                        <img src="images/ton.png" alt="TON" class="crypto-icon" width="20" height="20" loading="lazy">
+                        <img src="img/ton.png" alt="TON" class="crypto-icon" width="20" height="20" loading="lazy">
                         <span id="tonPrice">Загрузка...</span>
                     </div>
                     <div class="language-switcher" id="languageSwitcher">
@@ -92,7 +152,7 @@
         <main class="main-content">
             <div class="content">
                 <section class="hero">
-                    <img src="images/banner.png" alt="CFB Labs Banner" loading="lazy" decoding="async">
+                    <img src="img/banner.png" alt="CFB Labs Banner" loading="lazy" decoding="async">
                 </section>
             </div>
         </main>
@@ -101,20 +161,20 @@
             <div class="container">
                 <div class="footer_1">
                     <a href="https://vk.com/cfblabs" target="_blank" rel="noopener" aria-label="VK">
-                        <div class="icon"><img src="images/sn/vk-icon.png" alt="" width="16" height="16" loading="lazy">
+                        <div class="icon"><img src="img/sn/vk-icon.png" alt="" width="16" height="16" loading="lazy">
                         </div>
                     </a>
                     <a href="https://t.me/cfblabs" target="_blank" rel="noopener" aria-label="Telegram">
-                        <div class="icon"><img src="images/sn/telegram-icon.png" alt="" width="16" height="16"
+                        <div class="icon"><img src="img/sn/telegram-icon.png" alt="" width="16" height="16"
                                 loading="lazy"></div>
                     </a>
                     <a href="https://www.youtube.com/@cfblabsofficial" target="_blank" rel="noopener"
                         aria-label="YouTube">
-                        <div class="icon"><img src="images/sn/youtube-icon.png" alt="" width="16" height="16"
+                        <div class="icon"><img src="img/sn/youtube-icon.png" alt="" width="16" height="16"
                                 loading="lazy"></div>
                     </a>
                     <a href="https://github.com/CFB-Labs" target="_blank" rel="noopener" aria-label="GitHub">
-                        <div class="icon"><img src="images/sn/github-icon.png" alt="" width="16" height="16"
+                        <div class="icon"><img src="img/sn/github-icon.png" alt="" width="16" height="16"
                                 loading="lazy"></div>
                     </a>
                 </div>

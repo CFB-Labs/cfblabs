@@ -9,4 +9,3 @@
 > 
 > Viewing only. Unauthorized use prohibited.  
 > Только для ознакомления. Несанкционированное использование запрещено.
-

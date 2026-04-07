@@ -1,0 +1,25 @@
+# robots.txt для CFB Labs
+# Последнее обновление: 2026-04-07
+
+# Разрешаем всем поисковым роботам
+User-agent: *
+
+# Разрешаем индексацию основных страниц
+Allow: /
+Allow: /index.html
+Allow: /html/projects.html
+Allow: /html/markets.html
+Allow: /html/about_us.html
+
+# Запрещаем индексацию служебных/пустых страниц
+Disallow: /html/soon.html
+Disallow: /css/
+Disallow: /js/
+Disallow: /img/
+Disallow: /font/
+
+# Указываем путь к карте сайта
+Sitemap: https://cfblabs.online/sitemap.xml
+
+# Задержка между запросами (вежливость к серверу)
+Crawl-delay: 1
