@@ -11,11 +11,18 @@ Allow: /html/projects.html
 Allow: /html/markets.html
 Allow: /html/about_us.html
 
+# Разрешаем доступ к иконкам (для фавиконки в Google!)
+Allow: /img/icons/
+
 # Запрещаем индексацию служебных/пустых страниц
 Disallow: /html/soon.html
+Disallow: /html/products.html
 Disallow: /css/
 Disallow: /js/
-Disallow: /img/
+Disallow: /img/projects/
+Disallow: /img/markets/
+Disallow: /img/sn/
+Disallow: /img/products/
 Disallow: /font/
 
 # Указываем путь к карте сайта
