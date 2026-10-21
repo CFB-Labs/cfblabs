@@ -6,7 +6,7 @@
 
   <!-- Главная страница - наивысший приоритет -->
   <url>
-    <loc>https://cfblabs.online/</loc>
+    <loc>https://cfblabs.ru/</loc>
     <lastmod>2026-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Страница проектов -->
   <url>
-    <loc>https://cfblabs.online/html/projects.html</loc>
+    <loc>https://cfblabs.ru/html/projects.html</loc>
     <lastmod>2026-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- Страница маркетплейсов -->
   <url>
-    <loc>https://cfblabs.online/html/markets.html</loc>
+    <loc>https://cfblabs.ru/html/markets.html</loc>
     <lastmod>2026-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -30,7 +30,7 @@
 
   <!-- Страница "О нас" -->
   <url>
-    <loc>https://cfblabs.online/html/about_us.html</loc>
+    <loc>https://cfblabs.ru/html/about_us.html</loc>
     <lastmod>2026-04-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

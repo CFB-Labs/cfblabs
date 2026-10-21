@@ -26,7 +26,7 @@ Disallow: /img/products/
 Disallow: /font/
 
 # Указываем путь к карте сайта
-Sitemap: https://cfblabs.online/sitemap.xml
+Sitemap: https://cfblabs.ru/sitemap.xml
 
 # Задержка между запросами (вежливость к серверу)
 Crawl-delay: 1
