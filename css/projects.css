@@ -132,7 +132,7 @@ body {
         0 3px 6px rgba(0, 0, 0, 0.25),
         0 6px 12px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
     cursor: pointer;
     transform-style: preserve-3d;
 }
@@ -143,13 +143,24 @@ body {
     border-radius: 50px;
 }
 
-.black-folder:hover {
-    transform: translateY(-12px) rotateX(8deg) rotateY(-5deg);
-    box-shadow:
-        0 15px 30px rgba(255, 255, 255, 0.15),
-        0 10px 20px rgba(0, 0, 0, 0.4),
-        0 20px 40px rgba(0, 0, 0, 0.3),
-        inset 0 -5px 10px rgba(255, 255, 255, 0.1);
+.black-folder .glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.black-folder:hover .glare {
+    opacity: 1;
 }
 
 .folder-tab {
@@ -168,20 +179,21 @@ body {
         0 2px 5px rgba(0, 0, 0, 0.35),
         0 4px 8px rgba(0, 0, 0, 0.25);
     transform: translateY(-1px);
-    padding: 0 6px;
+    padding: 4px 8px;
     box-sizing: border-box;
+    z-index: 5;
 }
 
 .folder-tab p {
     margin: 0;
-    font-size: 7px;
+    font-size: 8px;
     color: white;
     font-family: 'PressStart2P', monospace;
     text-align: center;
-    line-height: 1.2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .folder-icon {
@@ -193,6 +205,7 @@ body {
     height: 64px;
     object-fit: contain;
     pointer-events: none;
+    z-index: 2;
 }
 
 .line {
