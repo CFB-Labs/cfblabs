@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.black-folder');
 
     cards.forEach(card => {
+        // Создаём элемент блика
         const glare = document.createElement('div');
         glare.classList.add('glare');
         card.appendChild(glare);
@@ -13,15 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
+            // Вычисляем угол наклона (максимум 15 градусов)
             const rotateX = ((y - centerY) / centerY) * -15;
             const rotateY = ((x - centerX) / centerX) * 15;
 
+            // Применяем 3D-трансформацию
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
 
+            // Позиционируем блик в зависимости от положения мыши
             const glareX = (x / rect.width) * 100;
             const glareY = (y / rect.height) * 100;
             glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%)`;
 
+            // Динамическая тень
             const shadowX = ((x - centerX) / centerX) * -20;
             const shadowY = ((y - centerY) / centerY) * -20;
             card.style.boxShadow = `
